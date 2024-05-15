@@ -1,5 +1,10 @@
+export type KeyFeature = {
+    _id: string;
+    feature: string;
+  };
+
 export type Film = {
-    id: string;
+    _id: string;
     brand: string;
     name: string;
     iso: number;
@@ -9,8 +14,8 @@ export type Film = {
     process: string;
     staticImageUrl: string;
     description: string;
-}
-
-export type FilmResponse = {
-    results: Film[];
-};
+    customDescription: string[];
+    keyFeatures: KeyFeature[];
+    dateAdded: string;
+    __v: number;
+  };
