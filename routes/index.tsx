@@ -1,4 +1,5 @@
 import { KeyFeature, Film } from "../types.ts";
+import Film_Item from "../components/Film_Item.tsx";
 
 export default async function AllFilms() {
   try {
@@ -10,11 +11,11 @@ export default async function AllFilms() {
     return (
       <div>
         <h1>Películas</h1>
-        <ul>
-          {films.map((film) => ( // usa directamente films aquí
-            <li key={film._id}>{film.name} - {film.name}</li>
+        <div className="films">
+          {films.map(film => (
+            <Film_Item film={film} key={film._id} />
           ))}
-        </ul>
+        </div>
       </div>
     );
   } catch (err) {
