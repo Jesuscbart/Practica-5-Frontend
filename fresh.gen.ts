@@ -4,6 +4,7 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $film_id_ from "./routes/film/[id].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $Filters from "./islands/Filters.tsx";
 import * as $MainPage from "./islands/MainPage.tsx";
@@ -13,6 +14,7 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/film/[id].tsx": $film_id_,
     "./routes/index.tsx": $index,
   },
   islands: {

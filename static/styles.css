@@ -1,3 +1,14 @@
+@import url('Film.css');
+@import url('Filter.css');
+
+.Title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+
 .Film_All {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -8,7 +19,7 @@
 
 .Film_All .Film_container {
   border: 1px solid #ddd;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   background-color: #f9f9f9;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -43,4 +54,9 @@
   height: auto;
   margin-top: 1rem;
   border-radius: 0.25rem;
+}
+
+.Film_All a {
+  text-decoration: none;
+  color: #333;
 }

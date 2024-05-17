@@ -21,13 +21,13 @@ const Film_All: FunctionComponent<Film_Item_Props> = (props) => {
                         <h2 class="FilmName">{my_film.name}</h2>
                         <img src={my_film.staticImageUrl} alt={my_film.name} />
                         <p>
-                            Format:
+                            <strong>Format:</strong>
                             {my_film.formatThirtyFive && " Thirty Five"}
                             {my_film.formatThirtyFive && my_film.formatOneTwenty && ", "}
                             {my_film.formatOneTwenty && " One Twenty"}
                         </p>
-                        <p>Iso: {my_film.iso}</p>
-                        <p>Color: {my_film.color ? "Color" : "B&W"}</p>
+                        <p><strong>Iso: </strong>{my_film.iso}</p>
+                        <p><strong>Color: </strong>{my_film.color ? "Color" : "B&W"}</p>
                     </div>
                 </a>
             </div>
