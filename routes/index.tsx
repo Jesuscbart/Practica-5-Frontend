@@ -1,51 +1,32 @@
-import { KeyFeature, Film } from "../types.ts";
-import Film_Item from "../components/Film_Item.tsx";
+import { Film } from "../types.ts";
+import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
+import Film_All from "../components/Film_All.tsx";
+import MainPage from "../islands/MainPage.tsx";
 
-export default async function AllFilms() {
-  try {
-    const response = await fetch("https://filmapi.vercel.app/api/films");
-    if (!response.ok) {
+export const handler: Handlers = {
+
+  async GET(_req: Request, ctx: FreshContext) {
+    
+    const films = await fetch("https://filmapi.vercel.app/api/films");
+    if (!films.ok) {
       throw new Error('Network response was not ok');
     }
-    const films: Film[] = await response.json(); // directamente asignamos el arreglo a films
-    return (
-      <div>
-        <h1>Películas</h1>
-        <div className="films">
-          {films.map(film => (
-            <Film_Item film={film} key={film._id} />
-          ))}
-        </div>
-      </div>
-    );
-  } catch (err) {
-    return <div>Ha habido un error: {err.message}</div>;
-  }
-}
+    const data:Film [] = await films.json();  // Asignamos la respuesta al array data
 
+    return ctx.render(data);
+  },
+};
 
+const Page = (props: PageProps) => {
+  const films: Film[] = props.data;
 
+  return (
 
+      <>
+          <MainPage films_original={films}/>
+      </>
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-// Página principal
-const Page = () => (
-  <>
-    <AllFilms />
-  </>
-);
+  );
+};
 
 export default Page;
-*/
