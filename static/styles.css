@@ -1,5 +1,6 @@
 @import url('Film.css');
 @import url('Filter.css');
+@import url('Modal.css');
 
 .Title {
   font-size: 2rem;
@@ -60,3 +61,24 @@
   text-decoration: none;
   color: #333;
 }
+
+.AddToProjectButton {
+  display: flex;
+  justify-content: center;
+}
+
+.AddToProjectButton button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #646464;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.AddToProjectButton button:hover {
+  background-color: #3f3f3f;
+}
+

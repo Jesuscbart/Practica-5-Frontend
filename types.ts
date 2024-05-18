@@ -19,3 +19,8 @@ export type Film = {
     dateAdded: string;
     __v: number;
   };
+
+export type Cookie = {
+  project: string;
+  fiml_IDs: string[];
+};

@@ -1,5 +1,6 @@
 import { FunctionComponent } from "preact";
 import { Film } from "../types.ts";
+import Add_To_Project_Button from "../islands/Projects/Add_To_Project_Button.tsx";
 
 // Props que recibe el componente
 type Film_Item_Props = {
@@ -30,6 +31,9 @@ const Film_All: FunctionComponent<Film_Item_Props> = (props) => {
                         <p><strong>Color: </strong>{my_film.color ? "Color" : "B&W"}</p>
                     </div>
                 </a>
+                <div class="AddToProjectButton">
+                    <Add_To_Project_Button id={my_film._id} />
+                </div>
             </div>
             ))}
         </div>

@@ -2,16 +2,22 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $Projects from "./routes/Projects.tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $film_id_ from "./routes/film/[id].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $Filters from "./islands/Filters.tsx";
 import * as $MainPage from "./islands/MainPage.tsx";
+import * as $Projects_Add_To_Project_Button from "./islands/Projects/Add_To_Project_Button.tsx";
+import * as $Projects_Add_To_Proyect from "./islands/Projects/Add_To_Proyect.tsx";
+import * as $Projects_Modal from "./islands/Projects/Modal.tsx";
+import * as $Projects_New_Project from "./islands/Projects/New_Project.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
+    "./routes/Projects.tsx": $Projects,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/film/[id].tsx": $film_id_,
@@ -20,6 +26,11 @@ const manifest = {
   islands: {
     "./islands/Filters.tsx": $Filters,
     "./islands/MainPage.tsx": $MainPage,
+    "./islands/Projects/Add_To_Project_Button.tsx":
+      $Projects_Add_To_Project_Button,
+    "./islands/Projects/Add_To_Proyect.tsx": $Projects_Add_To_Proyect,
+    "./islands/Projects/Modal.tsx": $Projects_Modal,
+    "./islands/Projects/New_Project.tsx": $Projects_New_Project,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

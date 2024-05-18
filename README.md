@@ -41,9 +41,6 @@ Meter en la cookie un array con los ids
 
 -------
 
-Añadir ruta [id]
-Añadir pagina id con la info de la pelicula
-
 Añadir boton añadir a proyecto
 
 Añadir Middleware
