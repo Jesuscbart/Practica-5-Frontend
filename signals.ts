@@ -1,6 +1,7 @@
 import { Signal } from "@preact/signals";
 import { Cookie } from "./types.ts";
 
+// Signals para los filtros y las cookies
 
 export const id_signal = new Signal<string>("");
 export const name_signal = new Signal<string>("name");

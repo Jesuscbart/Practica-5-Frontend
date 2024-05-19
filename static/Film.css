@@ -4,8 +4,7 @@
     padding: 20px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
     border-radius: 10px;
-    font-family: Arial, sans-serif; /* Cambia la tipografía aquí */
-}
+    font-family: Arial, sans-serif; 
 
 .FilmPage h1, .FilmPage h2 {
     text-align: center;
@@ -34,11 +33,12 @@
 }
 
 .FilmKeyFeatures ul {
-    list-style: disc; /* Cambia el estilo de la lista aquí */
-    padding-left: 20px; /* Añade un poco de padding a la izquierda para la viñeta */
+    list-style: disc; 
+    padding-left: 20px; 
 }
 
 .FilmKeyFeatures li {
     padding: 5px 0;
     border-bottom: 1px solid #ddd;
+}
 }

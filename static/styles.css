@@ -3,6 +3,10 @@
 @import url('Modal.css');
 @import url('Projects.css');
 
+
+/* Estilos de la MainPage */
+
+
 .Title {
   font-size: 2rem;
   font-weight: 700;
@@ -115,4 +119,3 @@
   height: auto;
   border-radius: 0.25rem;
 }
-

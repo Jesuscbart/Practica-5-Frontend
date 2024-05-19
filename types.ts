@@ -1,3 +1,5 @@
+// Tipos de datos de Film y de Cookie
+
 export type KeyFeature = {
     _id: string;
     feature: string;

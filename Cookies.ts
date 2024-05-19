@@ -1,5 +1,7 @@
 import { Cookie } from './types.ts';
 
+// Cookies functions
+
 export const getCookie = (req: Request, name: string): string | undefined => {
     const cookieHeader = req.headers.get('cookie') || '';
     const cookies = new Map(
@@ -23,13 +25,11 @@ export const getProjectsFromCookieClient = (): Cookie[] => {
 };
 
 
-
 // Server-side
 export const getProjectsFromCookieServer = (req: Request): Cookie[] => {
     const projectsCookie = getCookie(req, 'projectsCookie');
     return projectsCookie ? JSON.parse(projectsCookie) : [];
 };
-
 
 export const saveProjectsToCookie = (projects: Cookie[]): void => {
     const serializedData = encodeURIComponent(JSON.stringify(projects));
