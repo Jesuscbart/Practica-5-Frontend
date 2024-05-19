@@ -22,5 +22,5 @@ export type Film = {
 
 export type Cookie = {
   project: string;
-  fiml_IDs: string[];
+  film_IDs: string[];
 };

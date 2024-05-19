@@ -20,7 +20,17 @@
 .close {
   color: #aaa;
   float: right;
-  fontSize: 28px;
-  fontWeight: bold;
+  font-size: 28px;
+  font-weight: bold;
   cursor: pointer;
+}
+
+.input-project {
+  margin: 10px 0;
+  padding: 8px;
+}
+
+.button-project {
+  margin: 5px;
+  padding: 10px;
 }

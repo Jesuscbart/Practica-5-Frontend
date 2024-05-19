@@ -1,26 +1,44 @@
 import { FunctionComponent } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import New_Project from "./New_Project.tsx";
-import Add_To_Project from "./Add_To_Proyect.tsx";
+import Add_To_Project from "./Add_To_Project.tsx";
+import { getProjectsFromCookie, saveProjectsToCookie, getProjectsFromCookieClient } from "../../Cookies.ts";
+import { Cookie } from "../../types.ts";
 
 
 type ModalContentProps = {
     closeModal: () => void;
-    projects: string[];
-}
+};
 
-const Modal: FunctionComponent<ModalContentProps> = ({ closeModal, projects }) => {
+const Modal: FunctionComponent<ModalContentProps> = ({ closeModal }) => {
     const [showCreateProject, setShowCreateProject] = useState(false);
     const [showAddToProject, setShowAddToProject] = useState(false);
+    const [projects, setProjects] = useState<Cookie[]>(getProjectsFromCookieClient());
+
+    useEffect(() => {
+        setProjects(getProjectsFromCookieClient());
+    }, []);
 
     const handleCreateProject = (projectName: string) => {
+        const newProject = { project: projectName, film_IDs: [] };
+        const projects = getProjectsFromCookieClient();
+        const updatedProjects = [...projects, newProject];
+        saveProjectsToCookie(updatedProjects);
         console.log("Project Created:", projectName);
-        setShowCreateProject(false);
     };
 
-    const handleAddToProject = (projectName: string) => {
+    const handleAddToProject = (projectName: string, filmID: string) => {
+        const projects = getProjectsFromCookieClient();
+        const updatedProjects = projects.map(p =>
+            p.project === projectName ? { ...p, film_IDs: [...p.film_IDs, filmID] } : p
+        );
+        saveProjectsToCookie(updatedProjects);
         console.log("Added to Project:", projectName);
-        setShowAddToProject(false);
+
+
+        const decodedCookie = decodeURIComponent(document.cookie);
+        console.log(decodedCookie);
+
     };
 
     const openCreateProject = () => {
@@ -40,6 +58,7 @@ const Modal: FunctionComponent<ModalContentProps> = ({ closeModal, projects }) =
     const closeAddToProject = () => {
         setShowAddToProject(false);
     };
+
 
     return (
         <div className="modal" style={{ display: 'block' }}>

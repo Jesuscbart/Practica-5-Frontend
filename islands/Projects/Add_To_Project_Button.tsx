@@ -21,7 +21,7 @@ const Add_To_Project_Button: FunctionComponent<AddToProjectButtonProps> = ({ id 
     return (
         <>
             <button onClick={handleClick}>Add to Project</button>
-            {showModal && <Modal closeModal={closeModal} projects={["Project 1", "Project 2", "Project 3"]} />}
+            {showModal && <Modal closeModal={closeModal} />}
         </>
     );
 }

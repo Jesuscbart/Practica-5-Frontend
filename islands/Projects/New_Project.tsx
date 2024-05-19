@@ -21,10 +21,10 @@ const New_Project: FunctionComponent<NewProjectProps> = ({ onCreate, onClose }) 
                 value={projectName}
                 onChange={(e) => setProjectName(e.currentTarget.value)}
                 placeholder="Enter project name"
-                style={{ margin: '10px 0', padding: '8px' }}
+                className="input-project"
             />
-            <button type="submit" style={{ margin: '5px', padding: '10px' }}>Create Project</button>
-            <button type="button" onClick={onClose} style={{ margin: '5px', padding: '10px' }}>Close</button>
+            <button type="submit" className="button-project">Create Project</button>
+            <button type="button" onClick={onClose} className="button-project">Close</button>
         </form>
     );
 };

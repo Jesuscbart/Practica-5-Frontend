@@ -4,6 +4,7 @@ import { Film } from "../types.ts";
 import Film_All from "../components/Film_All.tsx";
 import { color_signal, formato_signal, iso_signal, brand_signal, name_signal } from "../signals.ts";
 import { SelectFilter, NombreFilter } from "./Filters.tsx";
+import ProjectsPage from "../routes/projects.tsx";
 
 
 type Params = {
@@ -79,6 +80,7 @@ const MainPage:FunctionComponent<Params> = ({films_original}) => {
         <>
             <h1 class="Title">Jesús Films</h1>
             <div class="Filters">
+                <a href="/projects" class="ProjectsButton">Projects</a>
                 <SelectFilter options={brands} selected={brand_signal} FilterType={"brand"}/>
                 <SelectFilter options={iso} selected={iso_signal} FilterType={"iso"}/>
                 <SelectFilter options={format_options} selected={formato_signal} FilterType={"format"}/>
