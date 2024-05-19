@@ -1,5 +1,11 @@
 # Práctica 5 - C - She's leaving home
 
+**Author:** Jesús Cuesta Bartolomé
+
+**Date:** 17/05/2024
+
+------
+
 Bienvenidos a la última práctica de la asignatura.  
 
 Se centrará en el uso de cookies en servidor para el guardado de datos; también se dederán/podrán utilizar a la par muchos otros conceptos de la asignatura como hooks de estado, efecto, señales, componentes, páginas dinámicas y más.  
@@ -30,7 +36,3 @@ La práctica será desarrollada en el framework Fresh.
 La página web se tendrá que desplegar en Deno deploy. En la entrega tendré que ver una url a visitar y un link al repositorio de GitHub donde hayáis subido el código con su respectiva release.
 
 Más avisos para caminantes, antes de ver nada de vuestro código abriré la página en mi navegador de confianza (el cuál no es netscape, tranquilos). La primera visualización gráfica afectará gravemente a mi opinión sobre el código que leeré Y EJECUTARÉ LOCALMENTE posteriormente.
-
--------
-
-Solucionar que cuando se crea un proyecto, de primeras no sale en el select
