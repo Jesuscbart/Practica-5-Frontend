@@ -3,20 +3,23 @@ import { useEffect, useState } from "preact/hooks";
 import { Film } from "../types.ts";
 import Film_All from "../components/Film_All.tsx";
 import { color_signal, formato_signal, iso_signal, brand_signal, name_signal } from "../signals.ts";
-import { SelectFilter, NombreFilter } from "./Filters.tsx";
-import ProjectsPage from "../routes/projects.tsx";
+import { SelectFilter, NameFilter } from "./Filters.tsx";
 
+// Página principal de la aplicación
 
+// Props que recibe el componente
 type Params = {
     films_original: Film[];
 }
 
+// Componente principal
 const MainPage:FunctionComponent<Params> = ({films_original}) => {
 
     // Variables de estado
     const [films, setFilms] = useState<Film[]>(films_original);
     const [brands, setBrands] = useState<string[]>([]);
     const [iso, setIso] = useState<number[]>([]);
+    
     
     useEffect(() => {
         const uniqueBrands = Array.from(new Set(films_original.map(film => film.brand))).sort();
@@ -27,11 +30,13 @@ const MainPage:FunctionComponent<Params> = ({films_original}) => {
     }, [films_original]); // Dependencia films_original asegura que recalculamos si la lista original cambia
 
 
+    // Funcion de filtrado de la marca
     const filter_marca = ( films:Film[] ) => {
         if(brand_signal.value == "brand"){return films}
         return films.filter(film => film.brand == brand_signal.value);
     }
 
+    // Funcion de filtrado de la iso
     const filter_iso = ( films:Film[] ) => {
         if(iso_signal.value == "iso"){return films}
         else{
@@ -39,7 +44,9 @@ const MainPage:FunctionComponent<Params> = ({films_original}) => {
         }
     }
 
+    
     const color_options = ["Color","B&W"];  // Array de las 2 opciones de color
+    // Opciones de color
     const filter_color = ( films:Film[] ) => {
         if(color_signal.value == "color"){return films}
 
@@ -53,7 +60,7 @@ const MainPage:FunctionComponent<Params> = ({films_original}) => {
     }
 
     const format_options = ["ThirtyFive","OneTwenty","ThirtyFive & OneTwenty"]; // Array de las 3 opciones de formato
-
+    // Opciones de formato
     const filter_format = ( films:Film[] ) => {
         if(formato_signal.value == "format"){return films}
         if(formato_signal.value == "ThirtyFive"){
@@ -67,11 +74,13 @@ const MainPage:FunctionComponent<Params> = ({films_original}) => {
         }
     }
        
+    // Funcion de filtrado del nombre
     const filter_nombre = ( films:Film[] ) => {
         if(name_signal.value == "name"){return films}
         return films.filter(film => film.name.includes(name_signal.value.toLowerCase()));
     }
-
+    
+    // Actualiza la lista de films al cambiar los filtros
     useEffect(() => {
         setFilms(filter_marca(filter_iso(filter_format(filter_color(filter_nombre(films_original))))));
     }, [color_signal.value,formato_signal.value,iso_signal.value,brand_signal.value,name_signal.value]);
@@ -85,7 +94,7 @@ const MainPage:FunctionComponent<Params> = ({films_original}) => {
                 <SelectFilter options={iso} selected={iso_signal} FilterType={"iso"}/>
                 <SelectFilter options={format_options} selected={formato_signal} FilterType={"format"}/>
                 <SelectFilter options={color_options} selected={color_signal} FilterType={"color"}/>
-                <NombreFilter name={name_signal}/>
+                <NameFilter name={name_signal}/>
             </div>
             <Film_All films={films} />
         </>

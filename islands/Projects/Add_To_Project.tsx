@@ -2,15 +2,18 @@ import { FunctionComponent } from 'preact';
 import { useEffect, useState } from "preact/hooks";
 import { Cookie } from "../../types.ts";
 
+// Botón para añadir a un proyecto existente dentro del modal
+
+// Props que recibe
 type AddToProjectProps = {
-    projects: Cookie[]; 
-    onAdd: (projectName: string, filmID: string) => void;
+    projects: Cookie[]; // Lista de proyectos
+    onAdd: (projectName: string, filmID: string) => void;   
     onClose: () => void;
     filmID: string;
 };
 
 const Add_To_Project: FunctionComponent<{ projects: Cookie[], onAdd: (projectName: string) => void, onClose: () => void }> = ({ projects, onAdd, onClose }) => {
-    const [selectedProject, setSelectedProject] = useState(projects[0]?.project || "");
+    const [selectedProject, setSelectedProject] = useState(projects[0]?.project || ""); // Proyecto seleccionado
 
     const handleAddClick = () => {
         onAdd(selectedProject);

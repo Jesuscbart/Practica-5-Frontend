@@ -1,12 +1,16 @@
 import { FunctionComponent } from 'preact';
 import { Signal } from "@preact/signals";
 
+// Filtros de búsqueda
 
+// Filtro de selección
 type SelectFilterParams = {
     FilterType: string;
     options: string[] | number[];
     selected: Signal;
 }
+
+// Componente de filtro de selección
 export const SelectFilter:FunctionComponent<SelectFilterParams> = ({FilterType,options,selected}) => {
 
     return (
@@ -20,14 +24,16 @@ export const SelectFilter:FunctionComponent<SelectFilterParams> = ({FilterType,o
     )
 }
 
-
-type NombreFilterProps = {
+// Filtro de nombre
+type NameFilterProps = {
     name: Signal;
 }
-export const NombreFilter:FunctionComponent<NombreFilterProps> = ({name}) => {
+
+// Componente de filtro de nombre
+export const NameFilter:FunctionComponent<NameFilterProps> = ({name}) => {
     return (
     <input class="name_input" type="search" value={name.value} 
-        onInput={(e)=>{name.value = e.currentTarget.value}} 
-        onFocus={(e)=>{e.currentTarget.value = ''}}/>
+        onInput={(e)=>{name.value = e.currentTarget.value}} // Actualiza el valor del nombre
+        onFocus={(e)=>{e.currentTarget.value = ''}}/>  
     )
 }

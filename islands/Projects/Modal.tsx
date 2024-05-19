@@ -5,22 +5,26 @@ import Add_To_Project from "./Add_To_Project.tsx";
 import { getProjectsFromCookie, saveProjectsToCookie, getProjectsFromCookieClient } from "../../Cookies.ts";
 import { Cookie } from "../../types.ts";
 
+// Modal para gestionar proyectos
 
+// Props que recibe
 type ModalContentProps = {
     closeModal: () => void;
     filmID: string;
 };
 
+// Modal
 const Modal: FunctionComponent<ModalContentProps> = ({ closeModal, filmID }) => {
-    const [showCreateProject, setShowCreateProject] = useState(false);
-    const [showAddToProject, setShowAddToProject] = useState(false);
-    const [projects, setProjects] = useState<Cookie[]>(getProjectsFromCookieClient());
+    const [showCreateProject, setShowCreateProject] = useState(false);  // Estado para mostrar el formulario de creación de proyecto
+    const [showAddToProject, setShowAddToProject] = useState(false);    // Estado para mostrar el formulario de añadir a proyecto
+    const [projects, setProjects] = useState<Cookie[]>(getProjectsFromCookieClient());  // Lista de proyectos
 
-
+    // Actualiza la lista de proyectos al montar el componente
     useEffect(() => {
         setProjects(getProjectsFromCookieClient());
     }, []);
 
+    // Función para crear un proyecto
     const handleCreateProject = (projectName: string) => {
         const newProject = { project: projectName, film_IDs: [] };
         const projects = getProjectsFromCookieClient();
@@ -30,6 +34,7 @@ const Modal: FunctionComponent<ModalContentProps> = ({ closeModal, filmID }) => 
         setProjects(updatedProjects);
     };
 
+    // Función para añadir a un proyecto
     const handleAddToProject = (projectName: string, filmID:string) => {
         const projects = getProjectsFromCookieClient();
         console.log("Attempting to add film ID:", filmID, "to project:", projectName);
@@ -45,6 +50,8 @@ const Modal: FunctionComponent<ModalContentProps> = ({ closeModal, filmID }) => 
 
     };
 
+    // Funciones para abrir y cerrar los formularios
+    
     const openCreateProject = () => {
         setShowCreateProject(true);
         setShowAddToProject(false);

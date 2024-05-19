@@ -1,13 +1,17 @@
 import { FunctionComponent } from 'preact';
 import { useEffect, useState } from "preact/hooks";
 
+// Botón para crear un nuevo proyecto dentro del modal
+
+// Props que recibe
 type NewProjectProps = {
     onCreate: (projectName: string) => void;
     onClose: () => void;
 };
 
+// Componente
 const New_Project: FunctionComponent<NewProjectProps> = ({ onCreate, onClose }) => {
-    const [projectName, setProjectName] = useState("");
+    const [projectName, setProjectName] = useState(""); // Estado para el nombre del proyecto
 
     const handleSubmit = (event: Event) => {
         event.preventDefault(); // Evita que la página se recargue
