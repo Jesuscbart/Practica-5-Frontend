@@ -8,12 +8,14 @@ import { Cookie } from "../../types.ts";
 
 type ModalContentProps = {
     closeModal: () => void;
+    filmID: string;
 };
 
-const Modal: FunctionComponent<ModalContentProps> = ({ closeModal }) => {
+const Modal: FunctionComponent<ModalContentProps> = ({ closeModal, filmID }) => {
     const [showCreateProject, setShowCreateProject] = useState(false);
     const [showAddToProject, setShowAddToProject] = useState(false);
     const [projects, setProjects] = useState<Cookie[]>(getProjectsFromCookieClient());
+
 
     useEffect(() => {
         setProjects(getProjectsFromCookieClient());
@@ -27,17 +29,18 @@ const Modal: FunctionComponent<ModalContentProps> = ({ closeModal }) => {
         console.log("Project Created:", projectName);
     };
 
-    const handleAddToProject = (projectName: string, filmID: string) => {
+    const handleAddToProject = (projectName: string, filmID:string) => {
         const projects = getProjectsFromCookieClient();
+        console.log("Attempting to add film ID:", filmID, "to project:", projectName);
         const updatedProjects = projects.map(p =>
             p.project === projectName ? { ...p, film_IDs: [...p.film_IDs, filmID] } : p
         );
         saveProjectsToCookie(updatedProjects);
-        console.log("Added to Project:", projectName);
+        console.log("Added to Project:", projectName, "with film ID:", filmID);
 
 
-        const decodedCookie = decodeURIComponent(document.cookie);
-        console.log(decodedCookie);
+        //const decodedCookie = decodeURIComponent(document.cookie);
+        //console.log(decodedCookie);
 
     };
 
@@ -74,7 +77,7 @@ const Modal: FunctionComponent<ModalContentProps> = ({ closeModal }) => {
                     <New_Project onCreate={handleCreateProject} onClose={closeCreateProject} />
                 )}
                 {showAddToProject && (
-                    <Add_To_Project projects={projects} onAdd={handleAddToProject} onClose={closeAddToProject} />
+                    <Add_To_Project projects={projects} onAdd={(projectName) => handleAddToProject(projectName, filmID)} onClose={closeAddToProject} />
                 )}
             </div>
         </div>

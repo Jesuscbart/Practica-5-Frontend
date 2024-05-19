@@ -33,14 +33,4 @@ Más avisos para caminantes, antes de ver nada de vuestro código abriré la pá
 
 -------
 
-Utilizar display grid para mostrar las peliculas.
-
-Utilizar display: none en lugar de visibility: hidden.
-
-Meter en la cookie un array con los ids
-
--------
-
-Añadir boton añadir a proyecto
-
-Añadir Middleware
+Solucionar que cuando se crea un proyecto, de primeras no sale en el select

@@ -38,12 +38,7 @@ const ProjectsPage = (props: PageProps<ProjectsProps>) => {
         {data.projects.map(project => (
           <div key={project.project}>
             <h2>{project.project}</h2>
-           
-            <ul>
-              {project.film_IDs.map(filmID => (
-                <li key={filmID}>{filmID}</li>
-              ))}
-            </ul>
+            <Film_All films={data.films.filter(film => project.film_IDs.includes(film._id))} />
         </div>
         ))}
       </div>
