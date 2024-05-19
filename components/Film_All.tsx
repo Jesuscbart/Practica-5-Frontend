@@ -31,7 +31,7 @@ const Film_All: FunctionComponent<Film_Item_Props> = (props) => {
                         <p><strong>Color: </strong>{my_film.color ? "Color" : "B&W"}</p>
                     </div>
                 </a>
-                <div class="AddToProjectButton">
+                <div class="ModalButton">
                     <Add_To_Project_Button id={my_film._id} />
                 </div>
             </div>

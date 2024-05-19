@@ -27,6 +27,7 @@ const Modal: FunctionComponent<ModalContentProps> = ({ closeModal, filmID }) => 
         const updatedProjects = [...projects, newProject];
         saveProjectsToCookie(updatedProjects);
         console.log("Project Created:", projectName);
+        setProjects(updatedProjects);
     };
 
     const handleAddToProject = (projectName: string, filmID:string) => {
@@ -69,8 +70,8 @@ const Modal: FunctionComponent<ModalContentProps> = ({ closeModal, filmID }) => 
                 <span className="close" onClick={closeModal}>&times;</span>
                 {!showCreateProject && !showAddToProject && (
                     <div>
-                        <button onClick={openCreateProject}>Create Project</button>
-                        <button onClick={openAddToProject}>Add to Project</button>
+                        <button class="CreateProjectButton" onClick={openCreateProject}>Create Project</button>
+                        <button class="AddToProjectButton" onClick={openAddToProject}>Add to Project</button>
                     </div>
                 )}
                 {showCreateProject && (

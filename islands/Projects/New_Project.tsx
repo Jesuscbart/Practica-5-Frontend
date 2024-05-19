@@ -11,7 +11,8 @@ const New_Project: FunctionComponent<NewProjectProps> = ({ onCreate, onClose }) 
 
     const handleSubmit = (event: Event) => {
         event.preventDefault(); // Evita que la página se recargue
-        onCreate(projectName);
+        onCreate(projectName); // Llama a la función onCreate con el nombre del proyecto
+        setProjectName(""); // Limpia el input después de crear el proyecto
     };
 
     return (
@@ -23,8 +24,8 @@ const New_Project: FunctionComponent<NewProjectProps> = ({ onCreate, onClose }) 
                 placeholder="Enter project name"
                 className="input-project"
             />
-            <button type="submit" className="button-project">Create Project</button>
-            <button type="button" onClick={onClose} className="button-project">Close</button>
+            <button class="ConfirmCreateProject" type="submit" >Create Project</button>
+            <button class="CloseButton" type="button" onClick={onClose} >Close</button>
         </form>
     );
 };

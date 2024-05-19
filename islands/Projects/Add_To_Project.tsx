@@ -21,8 +21,8 @@ const Add_To_Project: FunctionComponent<{ projects: Cookie[], onAdd: (projectNam
             <select onChange={(e) => setSelectedProject(e.currentTarget.value)} value={selectedProject}>
                 {projects.map(project => <option key={project.project} value={project.project}>{project.project}</option>)}
             </select>
-            <button onClick={handleAddClick}>Add to Current Project</button>
-            <button onClick={onClose}>Close</button>
+            <button class="AddToCurrentProjectButton" onClick={handleAddClick}>Add to Current Project</button>
+            <button class="CloseButton" onClick={onClose}>Close</button>
         </div>
     );
 };

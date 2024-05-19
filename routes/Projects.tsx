@@ -34,10 +34,11 @@ const ProjectsPage = (props: PageProps<ProjectsProps>) => {
   
     return (
       <div>
-        <h1>Projects</h1>
+        <a href="/" class="HomeButton">Home</a>
+        <h1 class="ProjectsMainTitle">Projects</h1>
         {data.projects.map(project => (
           <div key={project.project}>
-            <h2>{project.project}</h2>
+            <h2 class="ProjectsName">{project.project}</h2>
             <Film_All films={data.films.filter(film => project.film_IDs.includes(film._id))} />
         </div>
         ))}

@@ -12,7 +12,7 @@ const FilmPage: FunctionComponent<FilmProps> = (props) => {
         <div class="FilmPage">
             <h1>{film.brand}</h1>
             <h2>{film.name}</h2>
-            <img src={film.staticImageUrl} alt={film.name} />
+            <img class="SingleFilmImage" src={film.staticImageUrl} alt={film.name} />
             <p><strong>Description: </strong>{film.description}</p>
             <div class="FilmFeatures">
                 <div class="FilmDetails">
@@ -28,6 +28,7 @@ const FilmPage: FunctionComponent<FilmProps> = (props) => {
                     </ul>
                 </div>
             </div>
+            <a href="/" class="BackButton">Back</a>
         </div>
     )
 };

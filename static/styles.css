@@ -1,6 +1,7 @@
 @import url('Film.css');
 @import url('Filter.css');
 @import url('Modal.css');
+@import url('Projects.css');
 
 .Title {
   font-size: 2rem;
@@ -62,12 +63,12 @@
   color: #333;
 }
 
-.AddToProjectButton {
+.ModalButton {
   display: flex;
   justify-content: center;
 }
 
-.AddToProjectButton button {
+.ModalButton button {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -78,7 +79,40 @@
   transition: background-color 0.3s ease;
 }
 
-.AddToProjectButton button:hover {
+.ModalButton button:hover {
   background-color: #3f3f3f;
+}
+
+.ProjectsButton {
+  color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 10%;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(111, 195, 224);
+}
+
+.BackButton {
+
+  color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 10%;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(111, 195, 224);
+}
+
+.SingleFilmImage {
+  width: 20%; 
+  height: auto;
+  border-radius: 0.25rem;
 }
 
