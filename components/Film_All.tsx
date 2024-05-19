@@ -2,6 +2,8 @@ import { FunctionComponent } from "preact";
 import { Film } from "../types.ts";
 import Add_To_Project_Button from "../islands/Projects/Add_To_Project_Button.tsx";
 
+// Component que muestra todas las películas
+
 // Props que recibe el componente
 type Film_Item_Props = {
   films: Film[];

@@ -1,10 +1,14 @@
 import { FunctionComponent } from 'preact';
 import { Film } from '../types.ts';
 
+// Component que muestra la página de una única película
+
+// Props que recibe el componente
 type FilmProps = {
     film: Film;
 }
 
+// Componente que muestra la página de una única película
 const FilmPage: FunctionComponent<FilmProps> = (props) => {
     const film: Film = props.film;
 
